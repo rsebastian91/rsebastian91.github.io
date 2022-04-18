@@ -61,7 +61,7 @@
 			</div>
 			<div id="content" style="align: right-side; margin-left: 80px">
 				<p style="font-family: Arial;font-size: 14px"> SOFTWARE DEVELOPMENT</p>
-				<p style="font-family: Arial;font-size: 12px; margin-top: -15px; margin-right: 110px"> 4 years experience in developing softwares for simulation and signal processing in FORTRAN and C++ with MPI</p>
+				<p style="font-family: Arial;font-size: 12px; margin-top: -15px; margin-right: 110px"> 7 years experience in developing softwares for simulation and signal processing in FORTRAN and C++ with MPI</p>
 			</div>
 		</div>
 	  </div>
@@ -89,7 +89,7 @@
 			</div>
 			<div id="content" style="align: right-side; margin-left: 80px">
 				<p style="font-family: Arial;font-size: 14px"> RESEARCH & DEVELOPMENT</p>
-				<p style="font-family: Arial;font-size: 12px; margin-top: -15px; margin-right: 110px"> Involved in several R&D projects and co-supervised two of them</p>
+				<p style="font-family: Arial;font-size: 12px; margin-top: -15px; margin-right: 110px"> Involved in several R&D projects related to noise reduction, flow control, data analysis.</p>
 			</div>
 		</div>
 	  </div>
@@ -256,6 +256,44 @@ img.hover-shadow {
 .hover-shadow:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+body {
+  padding: 60px;
+}
+
+details {
+  margin-bottom: 1.5rem;
+  border: 1px solid #777
+  padding: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.15s background linear;
+
+  
+  summary {
+    background-color: #f8f8f8;
+
+  }
+}
+
+details:hover,
+details:focus {
+  background: #d4d1ec;
+}
+
+const detailsElements = document.querySelectorAll('details')
+
+detailsElements.forEach((detail) => {
+  detail.addEventListener('toggle', () => {
+    if (detail.open) {
+      detail.style.borderColor = "red";
+    } else {
+      detail.style.borderColor = "#777777";
+    }
+  })
+})
 </style>
 
 
@@ -317,35 +355,198 @@ img.hover-shadow {
 
 
     <div class="column">
-      <img class="demo cursor" src="images/iris.png" style="width:100%" onclick="currentSlide(1)" alt="Nature and sunrise">
+      <img class="demo cursor" src="images/iris.png" style="width:100%" onclick="currentSlide(1)" alt="">
     </div>
     <div class="column">
-      <img class="demo cursor" src="images/iris-1.png" style="width:100%" onclick="currentSlide(2)" alt="Snow">
+      <img class="demo cursor" src="images/iris-1.png" style="width:100%" onclick="currentSlide(2)" alt="">
     </div>
     <div class="column">
-      <img class="demo cursor" src="images/large-scale-1.png" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+      <img class="demo cursor" src="images/large-scale-1.png" style="width:100%" onclick="currentSlide(3)" alt="">
     </div>
     <div class="column">
-      <img class="demo cursor" src="images/liner-1.png" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+      <img class="demo cursor" src="images/liner-1.png" style="width:100%" onclick="currentSlide(4)" alt="">
     </div>
 	<div class="column">
-      <img class="demo cursor" src="images/pod.png" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+      <img class="demo cursor" src="images/pod.png" style="width:100%" onclick="currentSlide(4)" alt="">
     </div>
   </div>
 </div>
 
 
 <div id="site_content" style="margin-left: 10px; width: 930px">
-	<h1>FORTRAN projects</h1>
-	<ul>
-		<li>
-			<a href="https://github.com/rsebastian91/ChannelFlowSimulationUsingTurbulenceModel" target="_blank"> 
-			Channel flow simulation using turbulence model </a>
-		</li>
+<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script-->
+	<h1>Simulation codes</h1>
+	
+	<details>
+	<summary><strong>m-AIA</strong> </summary>
+	m-AIA is a multiphysics solver developed by several researchers over the years at the <a href="https://www.aia.rwth-aachen.de/" target="_blank" > Institute of Aerodynamics</a>, RWTH Aachen University, Germany. The code is written in C++ with MPI, ans was previously known as ZFS. m-AIA includes solvers based on finite volume method supporting both cartesian cut-cells and structured cells, lattize boltzman solver, and  discontinous solver. The code has been used in several research projects, and maintained using both SVN and Git.
+	<br><br>
+	During my postdoc phase, I worked on the extension of the finite volume solver using the structured grid to simulation jet injection in high speed crossflows. Implicit LESs were performed to develop promising and flexible flow control technique for better aerodynamics and efficiency of aerospace transport and propulsion systems.
+	</details>
+	
+	<br>
+	
+	<details>
+	<summary><strong>Compact3D</strong> </summary>
+	Compact3D is a high-order compresible CFD and CAA code based on finite difference method. The code is written in FORTRAN with MPI, and was developed during my PhD at the <a href="https://pprime.fr/en/home-pprime/" target="_blank" > Institut PPRIME</a>, University of Poitiers, France. The code was developed to perform high-order implicit LES. For better scalability on HPC systems 2D-pencil decomposition of the computational domain was adopted. The code was used to simulate temporal and spatial turbulent flows, as well as acoustic propagation over smooth wall and acoustic liner. No-slip wall, impedance boundary conditions, sponge zones, non-reflecting inlet and outlet boundary conditions were added to the code.
+	</details>
+	
+	<br>
+	
+	<details>
+	<summary><strong>ArgoDG</strong> </summary>
+	ArgoDG is a CFD and CAA code based on the discontinous galerkin method developed at the Belgian research center <a href="https://www.cenaero.be/" target="_blank" > CENAERO </a>. The code is written in C++ with MPI. Several researchers contribute to the code development, and the code is maintained using SVN. 
+	<br><br>
+	During my Master thesis I extended the acoustic module of ArgoDG to compute 3D sound propagation from a turboprob aircraft engine in take-off mode. Additionally, I added the homentropic linearized Euler equations to compute acoustic propagation in swirling flows, typically for noise computation in turbomachinery. Impedance boundary conditions and non-reflecting boundary conditions were also included. Bi-linear interpolation was developed to couple the CFD and CAA solvers. Real time Fourier transformer and output plugin for probes were also integrated to the solver. 
+	</details>
+
+	<br>
+	
+	<details>
+	<summary><strong>Simple CFD code for RANS simulation </strong> </summary>
+	The code was written as part of a personal project during the first year of M.Sc. Turbulence at Ecole Centrale de Lille. The code was written in FORTRAN and uses the finite volume method to solve RANS equations. The code was used to simulate channel flows and an algebraic turbulence model with the mixing length concept was used to model the eddy-viscosity. <a href="https://github.com/rsebastian91/ChannelFlowSimulationUsingTurbulenceModel" target="_blank"> [github repository] </a>
+	</details>
+	
+	<h1>Large data analysis</h1>
+	
+	<details>
+	<summary><strong>Ajvg_postprocessing </strong> </summary>
+	Post-processing routines were developed to postprocess and analyse the simulation results computed on complex multi-block grids by solver m-AIA. The code was written to perform spectral and conditional analysis, spectra reconstruction and also to interpolate the results from complex multi-block grid to regular 2D grid for faster and efficient analysis. 
+	</details>
+
+	
+	<br>
+	
+	<details>
+	<summary><strong>Turbstat </strong> </summary>
+	Turbstat is a FORTRAN code developed during my PhD to postprocess the large simulation dataset. The code is parallelized using MPI for faster calculations. The code was written to perform major statistical operations, spectral anallysis, scale decomposition analysis, and conditional analysis of both spatial and temporal flows.
+	</details>
+	
+	<br>
+	
+	<details>
+	<summary><strong>BoundaryLayer_postprocessing </strong> </summary>
+	A FORTRAN code was developed to postprocess the experimental dataset of the EU project WALLTURB. A synchronised hot-wire rake measurement was analysed to confirm the presence of large-scale structures, and their influence on the near-wall region. The code was developed to perform statistical analsysis, spectral analysis, as well as the decoupling procedure based on Hilbert transformation.
+	</details>
+	
+	<br>
+	
+	<h1>Acoustic</h1>
+	
+	<details>
+	<summary><strong>Ray tracing </strong> </summary>
+	A MATLAB script was extended to work on the student project "Development of Imaging techniques for Aeroacoustics sources". 2D & 3D ray tracing model were developed and extensively tested on mixing-layer and jet flows with temperature gradient to predict the sound propagation, and the time delays were estimated. The influence of the shear layer thickness, Mach number and temperature gradient were studied. 
+	</details>
+	
+	<br>
+	
+	<details>
+	<summary><strong>Beam forming </strong> </summary>
+	A MATLAB script was extended to work on the student project "Development of Imaging techniques for Aeroacoustics sources". 2D & 3D beamforming technique with Amiet correction was used to locate the aeroacoustic source in a mixing-layer and jet flows using the time delay information computed from the Ray-tracing method. Focalisation error was estimated and cross checked with the results obtained from a similar study performed using time-reversal technique.
+	</details>
+	
+	<br>
+	
+	
+	<h1>Machine learning</h1>
+	
+	<details>
+	<summary><strong>Categorical classification </strong> </summary>
+	This is a set of 3 simple examples of machine learning used for categorical classification. These include the famous MNIST, breast cancer and American sign language classification problems.
+	<a href="https://github.com/rsebastian91/CategoricalClassification" target="_blank"> [github repository] </a>
+	</details>
 		
-		<br>
+	<br>
+	
+	<details>
+	<summary><strong>CNN classification </strong> </summary>
+	This is an extension of categorical classification problem where convolutional neural network is applied to the American sign language problem.
+	<a href="https://github.com/rsebastian91/CNNClassification" target="_blank"> [github repository] </a>
+	</details>
 		
-	</ul>	
+	
+	<h1>Experiments</h1>
+	<details>
+	<summary><strong>Hot wire </strong> </summary>
+	</details>
+
+	<br>
+		
+	<details>
+	<summary><strong>PIV </strong> </summary>
+	</details>
+	
+	<br>
+		
+	<details>
+	<summary><strong>Acoustic </strong> </summary>
+	</details>
+	
+
+	
+	<h1>Other tools</h1>
+	<details>
+	<summary><strong>MPI concepts </strong> </summary>
+	</details>
+	
+	<br>
+	
+	<details>
+	<summary><strong>Spectra </strong> </summary>
+	</details>
+	
+	<br>
+	
+	<details>
+	<summary><strong>Wavelet </strong> </summary>
+	</details>
+	
+	<br>
+	
+	<details>
+	<summary><strong>SVD / POD </strong> </summary>
+	</details>
+	
+	<br>
+	
+	<details>
+	<summary><strong>Grid tools </strong> </summary>
+	</details>	
+		
+	<br>
+	
+	<details>
+	<summary><strong>StarCCM+ projects </strong> </summary>
+	</details>	
+	
+	
+	<br>
+	
+	<details>
+	<summary><strong>Aircraft aerodynamic calculation </strong> </summary>
+	</details>		
+
+	<br>
+	
+	<details>
+	<summary><strong>Aircraft stress calculation </strong> </summary>
+	</details>	
+		
+	
+	
+	
+<!--details>
+  <summary>Summary 1</summary>
+  Some details 1.
+</details>
+<details>
+  <summary>Summary 2</summary>
+  Some details 2.
+</details>
+<details>
+  <summary>Summary 3</summary>
+  Some details 3.
+</details-->
 </div>
 
 <script>
